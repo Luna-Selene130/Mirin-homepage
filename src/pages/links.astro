@@ -25,12 +25,69 @@ import LinkCard from "../components/linkcard.astro";
             url="https://x.com/Mirin_2468"
             icon=""
             />
+
+            <LinkCard
+            name="Github"
+            description="たまーに更新する"
+            url="https://github.com/Luna-Selene130"
+            icon=""
+            />
         </div>
     </section>
 
     <section>
-        <h2>友達のサイト</h2>
+        <h2>友達のリンク</h2>
+
         <div class="friend-links">
+            <LinkCard
+            name="トラマト"
+            description="ホームページの作り方すごくわかりやすかった！！"
+            url="https://toramutton.me/"
+            icon="https://unavatar.io/x/ToraMutton"
+            />
+
+            <LinkCard
+            name="どらちゃん"
+            description="色々教えるのがうまい人"
+            url="https://natamoko.jp/"
+            icon="https://unavatar.io/x/dora_natamoko"
+            />
+
+            <LinkCard
+            name="はるしぐれ"
+            description="サカバンバスピスの人"
+            url="https://my-homepage-gules-six.vercel.app/"
+            icon="https://unavatar.io/x/hrsgr_yarn"
+            />
+
+            <LinkCard
+            name="美羽"
+            description="N科のアイドルオタクの人！"
+            url="https://hiiragi-miu.com/"
+            icon="https://unavatar.io/x/M_Sakura479"
+            />
+
+            <LinkCard
+            name="アキラ(A-KIlA)"
+            description="放送映像研究部の部長さん！"
+            url="https://x.com/AKL_movediar"
+            icon="https://unavatar.io/x/AKL_movediar"
+            />
+
+            <LinkCard
+            name="ばんぶー"
+            description="一個下のN科アイドルオタクの人～"
+            url="https://b4mboo.net/"
+            icon="https://unavatar.io/x/b4mboot"
+            />
+
+            <LinkCard
+            name="スケプロ"
+            description="由来はスケボーのプロらしい"
+            url="https://x.com/yuuto_03_18"
+            icon="https://unavatar.io/x/yuuto_03_18"
+            />
+
         </div>
     </section>
 
@@ -43,7 +100,7 @@ import LinkCard from "../components/linkcard.astro";
 
     .links {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250, 1fr));
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap:15px;
     }
 
@@ -52,7 +109,7 @@ import LinkCard from "../components/linkcard.astro";
         gap: 15px; 
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 700px) {
         .links {
             grid-template-columns: 1fr;
         }
