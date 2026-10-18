@@ -1,0 +1,38 @@
+---
+import BlogLayout from '../../Layouts/BlogLayout.astro';
+import '../../styles/blog.css'
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+    const posts = await getCollection('blog');
+
+    return posts.map((post) => ({
+        params: { slug: post.id},
+        props: { post },
+    }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const formattedDate = post.data.date.toLocaleDateString('ja-JP', {
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+}).replaceAll('/','.');
+---
+
+<BlogLayout title={`${post.data.title} | みりん星`}>
+    <article class="blog-post">
+        <div class="article-info">
+            <h1>{post.data.title}</h1>
+            <time datetime={post.data.date.toISOString()}>
+                日付：{formattedDate}
+            </time>
+        </div>
+
+        <div class="post-content">
+            <Content />
+        </div>
+    </article>
+</BlogLayout>

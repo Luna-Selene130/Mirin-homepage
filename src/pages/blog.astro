@@ -1,6 +1,11 @@
 ---
 import Layout from '../Layouts/layout.astro';
 import Blogcard from '../components/blogcard.astro';
+import { getCollection } from 'astro:content';
+
+const allPosts = await getCollection('blog');
+
+allPosts.sort((a,b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 <Layout
     title="Blog | みりん星"
@@ -9,12 +14,18 @@ import Blogcard from '../components/blogcard.astro';
 >
 
     <section class="blog-list">
-        <Blogcard
-            date='2026.10.04'
-            title='サイトを作りました！'
-            description='新しく自分のサイトを作りました'
-            href='#'
-        />
+        {allPosts.map((post) => (
+            <Blogcard
+                    date = {post.data.date.toLocaleDateString('ja-JP', {
+                    year: 'numeric',
+                    month: '2-digit',
+                    day: '2-digit',
+                }).replaceAll('/','.')}
+                title = {post.data.title}
+                description = {post.data.description}
+                href = {`/blog/${post.id}/`}
+            />
+        ))}
     </section>
 
 </Layout>

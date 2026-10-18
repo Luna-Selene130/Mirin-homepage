@@ -25,12 +25,12 @@ const { date, title, description, href} = Astro.props;
         border-radius: 18px;
         padding: 25px 30px;
     }
-
+    
     .blog-date {
         color: var(--pink);
         font-size: 0.9rem;
     }
-
+    
     .blog-card h2 {
         margin: 8px 0;
     }
@@ -39,10 +39,16 @@ const { date, title, description, href} = Astro.props;
         margin: 0 0 15px;
         color: var(--text-light);
     }
-
+    
     .read-more {
         color: var(--pink);
         text-decoration: none;
         font-weight: bold;
+        transition: color 0.2s ease;
+    }
+
+    .read-more:hover {
+        color: #E47779;
+        text-decoration: underline;
     }
 </style>
